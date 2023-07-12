@@ -67,7 +67,14 @@ namespace PhotonServerClient
             }
 
             Logger.Info("Attempting ConnectUsingSettings");
-            PhotonNetwork.ConnectUsingSettings(PLNetworkManager.Instance.VersionString);
+            if (IsPrivateConnection)
+            {
+                PhotonNetwork.ConnectUsingSettings(PLNetworkManager.Instance.VersionString);
+            }
+            else
+            {
+                PhotonNetwork.ConnectToRegion(PLRegionSelect.GetRegionCode(PLXMLOptionsIO.Instance.CurrentOptions.GetStringValue("PhotonRegion")), PLNetworkManager.Instance.VersionString, null);
+            }
             yield break;
         }
 
