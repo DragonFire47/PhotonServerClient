@@ -9,8 +9,6 @@ namespace PhotonServerClient
             ClientInterface.IsPrivateConnection = ClientInterface.AlwaysConnectToPrivate.Value;
         }
 
-        public override string Version => "1.0.0";
-
         public override string Author => "Dragon";
 
         public override string Name => "Photon Server Client";
